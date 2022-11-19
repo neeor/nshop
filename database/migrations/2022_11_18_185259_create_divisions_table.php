@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticlesTable extends Migration
+class CreateDivisionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('divisions', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
             $table->text('description');  
@@ -30,10 +30,10 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->dropForeign('articles_subsection_id_foreign');
+        Schema::table('divisions', function (Blueprint $table) {
+            $table->dropForeign('divisions_subsection_id_foreign');            
             $table->dropColumn('subsection_id');
-        });        
-        Schema::dropIfExists('articles');
+        });
+        Schema::dropIfExists('divisions');
     }
 }

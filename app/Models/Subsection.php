@@ -39,10 +39,20 @@ class Subsection extends Model
     /**
      * Returns the articles belonging to this subsection. 
      *
-     * @return array<App/Articles>
+     * @return array<App/Article>
      */
     public function articles()
     {
         return $this->hasMany('App\Article', 'subsection_id', 'id');
+    }
+
+    /**
+     * Returns the divisions belonging to this subsection. 
+     *
+     * @return array<App/Division>
+     */
+    public function divisions()
+    {
+        return $this->hasMany('App\Division', 'division_id', 'id');
     }
 }
